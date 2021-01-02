@@ -19,7 +19,6 @@ public class Win {
                 break;
             }
         }
-
         return result;
     }
     public static boolean check(int[][] board) {
