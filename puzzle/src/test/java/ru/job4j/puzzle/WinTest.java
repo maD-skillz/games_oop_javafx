@@ -32,6 +32,7 @@ public class WinTest {
         assertThat(Win.check(board), is(true));
     }
 
+
     @Test
     public void whenNotWin() {
         int[][] board = {
