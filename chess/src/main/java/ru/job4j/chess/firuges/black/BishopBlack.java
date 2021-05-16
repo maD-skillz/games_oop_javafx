@@ -1,5 +1,6 @@
 package ru.job4j.chess.firuges.black;
 
+import ru.job4j.chess.Logic;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
@@ -17,13 +18,27 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell dest) {
-        throw new IllegalStateException(
-                String.format("Could not way by diagonal from %s to %s", position, dest)
-        );
+        if (!isDiagonal(position, dest)) {
+            throw new IllegalStateException(
+
+                    String.format("Could not way by diagonal from %s to %s", position, dest)
+            );
+        }
+
+        int size = Cell.values().length;
+        Cell[] steps = new Cell[size];
+        int deltaX = Math.abs(dest.getX() - 1);
+        int deltaY = Math.abs(dest.getY() - 1);
+        for (int index = 0; index < size; index++) {
+            int x = index + deltaX;
+            int y = index + deltaY;
+            steps[index] = Cell.findBy(x, y);
+        }
+        return steps;
     }
 
     public boolean isDiagonal(Cell source, Cell dest) {
-        return false;
+        return (Math.abs(dest.getX() - source.getX()) == Math.abs(dest.getY() - source.getY()));
     }
 
     @Override
@@ -31,3 +46,4 @@ public class BishopBlack implements Figure {
         return new BishopBlack(dest);
     }
 }
+
