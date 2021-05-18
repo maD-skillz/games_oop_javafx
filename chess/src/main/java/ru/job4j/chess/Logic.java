@@ -20,10 +20,23 @@ public final class Logic {
         figures[index] = figures[index].copy(dest);
     }
 
+   /* public boolean isEqual() {
+        for (int i = 0; i < figures.length; i++) {
+            for (int j = 0; j < .length; j++) {
+                if (Arrays.equals(arr[i], arr2[j])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    } */
+
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (int i = 0; i < figures.length; i++) {
-              if (steps.equals(figures))
-            throw new OccupiedCellException();
+            for (int j = 0; j < steps.length; j++) {
+                if (Arrays.equals(figures[i], steps[j]))
+                    throw new OccupiedCellException();
+            }
 
     }
         return true;
