@@ -32,7 +32,7 @@ public class BishopBlackTest  {
    @Test
    public void freeTest() {
       BishopBlack bishopBlack = new BishopBlack(Cell.A1);
-      Assert.assertEquals(bishopBlack.copy(Cell.E3).position(), Cell.E3);
+      Assert.assertNotEquals(bishopBlack.copy(Cell.E3).position(), Cell.E4);
    }
 
 }
